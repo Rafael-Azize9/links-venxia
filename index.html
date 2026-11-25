@@ -455,6 +455,13 @@
     .acao:focus-visible { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
     .acao:active { transform: scale(0.96); }
     .acao:focus-visible { outline: 3px solid var(--branco); outline-offset: 2px; }
+    .acao--larga {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      min-height: 52px;
+      gap: 9px;
+      font-size: 0.76rem;
+    }
 
     /* ---------- Feedback ---------- */
     .toast {
@@ -576,6 +583,10 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 20v-1.5a4.5 4.5 0 0 0-4.5-4.5h-4A4.5 4.5 0 0 0 2 18.5V20"/><circle cx="8.5" cy="7.5" r="3.5"/><path d="M18 8v6M15 11h6"/></svg>
           Salvar contato
         </button>
+        <button class="acao acao--larga entrar" style="--atraso: 0.66s" id="btn-gerar-card" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
+          Gerar card para compartilhar
+        </button>
       </div>
     </section>
 
@@ -670,6 +681,163 @@
         link.click();
         document.body.removeChild(link);
         avisar("Contato pronto para salvar");
+      });
+
+      function desenharCard() {
+        var tela = document.createElement("canvas");
+        tela.width = 1080;
+        tela.height = 1080;
+        var ctx = tela.getContext("2d");
+        var tam = 1080;
+
+        var fundo = ctx.createLinearGradient(0, 0, tam, tam);
+        fundo.addColorStop(0, "#04122f");
+        fundo.addColorStop(0.5, "#0a3f9c");
+        fundo.addColorStop(1, "#2f86e8");
+        ctx.fillStyle = fundo;
+        ctx.fillRect(0, 0, tam, tam);
+
+        function brilho(x, y, raio, cor) {
+          var g = ctx.createRadialGradient(x, y, 0, x, y, raio);
+          g.addColorStop(0, cor);
+          g.addColorStop(1, "rgba(0,0,0,0)");
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, tam, tam);
+        }
+        brilho(140, 90, 650, "rgba(122,196,255,0.30)");
+        brilho(950, 980, 620, "rgba(124,92,255,0.26)");
+
+        // X gigante e translúcido, igual ao fundo da página
+        ctx.save();
+        ctx.globalAlpha = 0.08;
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 74;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(300, 200); ctx.lineTo(800, 700);
+        ctx.moveTo(800, 200); ctx.lineTo(300, 700);
+        ctx.stroke();
+        ctx.restore();
+
+        // Círculo da marca
+        ctx.save();
+        ctx.shadowColor = "rgba(0,0,0,0.45)";
+        ctx.shadowBlur = 45;
+        ctx.beginPath();
+        ctx.arc(540, 278, 118, 0, Math.PI * 2);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+        ctx.restore();
+
+        ctx.lineCap = "round";
+        ctx.lineWidth = 24;
+        var g1 = ctx.createLinearGradient(490, 228, 590, 328);
+        g1.addColorStop(0, "#a045ff");
+        g1.addColorStop(1, "#3d8bff");
+        ctx.strokeStyle = g1;
+        ctx.beginPath();
+        ctx.moveTo(490, 228); ctx.lineTo(590, 328);
+        ctx.stroke();
+        var g2 = ctx.createLinearGradient(490, 328, 590, 228);
+        g2.addColorStop(0, "#ffffff");
+        g2.addColorStop(1, "#bcd9ff");
+        ctx.strokeStyle = g2;
+        ctx.beginPath();
+        ctx.moveTo(590, 228); ctx.lineTo(490, 328);
+        ctx.stroke();
+
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "800 96px Inter, Arial, sans-serif";
+        ctx.fillText("Venxia", 540, 520);
+        ctx.fillStyle = "rgba(198,224,255,0.92)";
+        ctx.font = "500 34px Inter, Arial, sans-serif";
+        ctx.fillText("CANAIS DE CONTATO", 540, 580);
+
+        ctx.beginPath();
+        ctx.moveTo(144, 630);
+        ctx.arcTo(970, 630, 970, 930, 34);
+        ctx.arcTo(970, 930, 110, 930, 34);
+        ctx.arcTo(110, 930, 110, 630, 34);
+        ctx.arcTo(110, 630, 970, 630, 34);
+        ctx.closePath();
+        ctx.fillStyle = "rgba(255,255,255,0.10)";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(255,255,255,0.18)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        var linhas = [
+          ["WhatsApp", "(88) 99699-6085"],
+          ["Site", "venxia.com"],
+          ["E-mail", "contato.venxia@gmail.com"]
+        ];
+        linhas.forEach(function (item, i) {
+          var y = 712 + i * 78;
+          ctx.textAlign = "left";
+          ctx.fillStyle = "rgba(255,255,255,0.62)";
+          ctx.font = "600 26px Inter, Arial, sans-serif";
+          ctx.fillText(item[0].toUpperCase(), 170, y);
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "700 36px Inter, Arial, sans-serif";
+          ctx.fillText(item[1], 170, y + 34);
+        });
+
+        ctx.textAlign = "center";
+        ctx.fillStyle = "rgba(255,255,255,0.72)";
+        ctx.font = "500 28px Inter, Arial, sans-serif";
+        ctx.fillText("Av. da Abolição, Loja 01 · Meireles · Fortaleza/CE", 540, 998);
+        ctx.fillStyle = "rgba(255,255,255,0.45)";
+        ctx.font = "500 22px Inter, Arial, sans-serif";
+        ctx.fillText("© 2026 Venxia · Todos os direitos reservados", 540, 1040);
+
+        return tela;
+      }
+
+      function finalizarCard(tela) {
+        var nome = "venxia-contato.png";
+        function concluir(blob) {
+          var arquivo = null;
+          try { arquivo = new File([blob], nome, { type: "image/png" }); } catch (erro) {}
+          if (arquivo && navigator.canShare && navigator.canShare({ files: [arquivo] })) {
+            navigator.share({ files: [arquivo], title: "Venxia" }).catch(function (erro) {
+              if (!erro || erro.name !== "AbortError") avisar("Não foi possível compartilhar");
+            });
+            return;
+          }
+          var url = URL.createObjectURL(blob);
+          var link = document.createElement("a");
+          link.href = url;
+          link.download = nome;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+          avisar("Card salvo!");
+        }
+        if (tela.toBlob) {
+          tela.toBlob(concluir, "image/png");
+        } else {
+          var link = document.createElement("a");
+          link.href = tela.toDataURL("image/png");
+          link.download = nome;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          avisar("Card salvo!");
+        }
+      }
+
+      document.getElementById("btn-gerar-card").addEventListener("click", function () {
+        function gerar() {
+          try { finalizarCard(desenharCard()); }
+          catch (erro) { avisar("Não foi possível gerar o card"); }
+        }
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(gerar).catch(gerar);
+        } else {
+          gerar();
+        }
       });
     })();
   </script>

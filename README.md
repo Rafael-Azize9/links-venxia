@@ -13,7 +13,7 @@ gradiente azul e animações discretas.
 - Página única (`index.html`), responsiva e com suporte a notch/`safe-area`.
 - Canais centralizados em cards, com hierarquia visual clara.
 - Favicon, preview para redes sociais e selo de presença "Online agora".
-- Ações rápidas: compartilhar, copiar e-mail e salvar contato no celular.
+- Ações rápidas: compartilhar, copiar e-mail, salvar contato e gerar card em imagem.
 - `manifest.webmanifest` para instalar a página como app na tela inicial.
 - Acessibilidade: foco visível, `aria` e respeito a `prefers-reduced-motion`.
 
@@ -40,6 +40,10 @@ Abaixo dos canais há três botões compactos:
 - **Copiar e-mail** — copia `contato.venxia@gmail.com` para a área de transferência.
 - **Salvar contato** — baixa o arquivo `venxia.vcf`, que pode ser aberto para
   adicionar a Venxia à agenda com telefone, e-mail, site e endereço.
+- **Gerar card para compartilhar** — cria um PNG quadrado (1080×1080) com a
+  logo, WhatsApp, site, e-mail e endereço sobre o gradiente da marca. No
+  celular, abre a opção de compartilhamento nativa; no desktop, baixa a imagem.
+  O card é desenhado via Canvas, sem depender de nenhum arquivo externo.
 
 O feedback aparece em um aviso discreto na parte inferior da tela. Todo o
 JavaScript usado está no final do `index.html`; não há bibliotecas externas.
