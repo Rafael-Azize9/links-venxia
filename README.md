@@ -81,17 +81,17 @@ e `twitter:image` para que o preview no WhatsApp funcione.
 
 Tudo fica no `index.html`. Procure pelos trechos abaixo:
 
-Dados já configurados: **Venxia**, WhatsApp `(88) 99699-6085`, site `venxia.com`, e-mail `contato.venxia@gmail.com`, endereço `Av. da Abolição, Loja 01 – Meireles, Fortaleza/CE – CEP 60165-078`.
+Dados já configurados: **Venxia**, WhatsApp `(88) 99699-6085`, site real `https://venxia-page.vercel.app` (o texto visível/placeholder é `venxia.com`), e-mail `contato.venxia@gmail.com`, endereço `Av. da Abolição, Loja 01 – Meireles, Fortaleza/CE – CEP 60165-078`.
 
 | O que mudar | Onde está |
 |---|---|
 | Nome da empresa e descrição | `<header class="perfil">` |
 | Logo | Já configurada: `logo.png` (recorte da imagem original em Downloads). Para trocar, substitua o arquivo mantendo o nome ou edite o `src` do `<img class="avatar">` |
 | Favicon | Embutido no `<head>` como data URI (funciona mesmo sem os arquivos externos). Arquivos: `favicon.svg` e `favicon.png` (fallback). Para trocar, edite a linha `rel="icon"` e os arquivos |
-| Preview no WhatsApp | Tags Open Graph e Twitter Card no `<head>`. A imagem é `og-image.png` (1200×630). **Troque `venxia.com` pelo domínio real onde esta página estiver publicada** nas tags `og:url`, `og:image` e `twitter:image` |
+| Preview no WhatsApp | Tags Open Graph e Twitter Card no `<head>`. A imagem é `og-image.png` (1200×630). As tags `og:url`, `og:image` e `twitter:image` já apontam para o site real `https://venxia-page.vercel.app`; `venxia.com` fica apenas como texto/placeholder visível |
 | Número do WhatsApp | No link `wa.me/5588996996085` (use DDI + DDD + número, só dígitos) |
 | Mensagem automática do WhatsApp | No parâmetro `?text=` (já codificado em URL) |
-| Site | `href="https://venxia.com"` e o texto da descrição |
+| Site | `href="https://venxia-page.vercel.app"`; o texto da descrição permanece `venxia.com` (placeholder) |
 | E-mail | `href="mailto:contato.venxia@gmail.com"` e o texto da descrição |
 | Endereço | `<address>` no rodapé |
 | Link do mapa | `href` do "Ver no mapa" (link do Google Maps) |
