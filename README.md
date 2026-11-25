@@ -8,6 +8,17 @@ Abra o `index.html` no navegador, ou hospede a pasta inteira em qualquer
 servidor estático (GitHub Pages, Netlify, Vercel, host de sua preferência).
 Não precisa de instalação nem de build.
 
+## GitHub
+
+Repositório: https://github.com/Rafael-Azize9/links-venxia (branch `main`).
+
+Para publicar com GitHub Pages: **Settings → Pages → Build and deployment →
+Deploy from a branch → main / root**. Depois, o endereço será
+`https://rafael-azize9.github.io/links-venxia/`.
+
+Se for usar esse endereço, troque `venxia.com` pelas tags `og:url`, `og:image`
+e `twitter:image` para que o preview no WhatsApp funcione.
+
 ## O que editar
 
 Tudo fica no `index.html`. Procure pelos trechos abaixo:
