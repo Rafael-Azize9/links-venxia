@@ -86,6 +86,7 @@ Tudo é CSS puro (sem JavaScript):
 - Entrada escalonada de logo, título, canais e rodapé (`fade + translate + blur`, com easing de mola).
 - Anel de gradiente girando lentamente ao redor da logo.
 - Orbs de luz flutuando no fundo e textura de granulado sutil.
+- Marca "X" gigante e translúcida ao fundo, oscilando e girando lentamente (via logo, com `mix-blend-mode: screen`).
 - Selo "Online agora" com ponto verde pulsando suavemente.
 - Ao tocar/passar mouse nos cards: elevação suave, ícone crescendo e varredura de luz.
 - `prefers-reduced-motion`: todas as animações são desativadas para quem prefere menos movimento.
