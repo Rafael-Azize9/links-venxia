@@ -1,0 +1,26 @@
+{
+  "name": "Venxia — Canais de contato",
+  "short_name": "Venxia",
+  "description": "Canais oficiais de contato da Venxia: WhatsApp, site, e-mail e localização.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#04122f",
+  "theme_color": "#04122f",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "454x454",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

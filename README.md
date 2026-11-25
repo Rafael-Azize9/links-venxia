@@ -13,6 +13,8 @@ gradiente azul e animações discretas.
 - Página única (`index.html`), responsiva e com suporte a notch/`safe-area`.
 - Canais centralizados em cards, com hierarquia visual clara.
 - Favicon, preview para redes sociais e selo de presença "Online agora".
+- Ações rápidas: compartilhar, copiar e-mail e salvar contato no celular.
+- `manifest.webmanifest` para instalar a página como app na tela inicial.
 - Acessibilidade: foco visível, `aria` e respeito a `prefers-reduced-motion`.
 
 ## A logo da Venxia
@@ -28,6 +30,19 @@ A mesma marca aparece em outros pontos:
 - `logo.png` — avatar/cabeçalho e ícone "apple-touch-icon".
 - `favicon.svg` e `favicon.png` — ícone da aba do navegador.
 - `og-image.png` — imagem de preview (1200×630) para WhatsApp e redes sociais.
+
+## Ações rápidas
+
+Abaixo dos canais há três botões compactos:
+
+- **Compartilhar** — usa a API nativa de compartilhamento do celular; se não
+  houver suporte, copia o link da página.
+- **Copiar e-mail** — copia `contato.venxia@gmail.com` para a área de transferência.
+- **Salvar contato** — baixa o arquivo `venxia.vcf`, que pode ser aberto para
+  adicionar a Venxia à agenda com telefone, e-mail, site e endereço.
+
+O feedback aparece em um aviso discreto na parte inferior da tela. Todo o
+JavaScript usado está no final do `index.html`; não há bibliotecas externas.
 
 ## Propriedade e direitos autorais
 
@@ -78,6 +93,9 @@ Dados já configurados: **Venxia**, WhatsApp `(88) 99699-6085`, site `venxia.com
 | Link do mapa | `href` do "Ver no mapa" (link do Google Maps) |
 | Ano/direitos | `<p class="rodape__copyright">` |
 | Cores | Variáveis no bloco `:root` do CSS |
+| Ações rápidas | Botões no `<div class="acoes">` e script no final do `index.html` |
+| Contato para agenda | Arquivo `venxia.vcf` (telefone, e-mail, site e endereço) |
+| Instalação como app | Arquivo `manifest.webmanifest` |
 
 ## Animações
 
@@ -101,3 +119,4 @@ Tudo é CSS puro (sem JavaScript):
 - Os cards dos canais são centralizados (ícone, título e descrição alinhados ao centro), sem setas, para um visual mais limpo.
 - Se o favicon não aparecer de imediato, é cache do navegador: faça uma recarga forçada (Ctrl+F5) ou abra em aba anônima.
 - Para testar o preview do link, use o [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) ou o [Twitter Card Validator](https://cards-dev.twitter.com/validator). O WhatsApp usa as mesmas tags Open Graph.
+- Pendente de definição do domínio final: gerar o QR Code da página e trocar as URLs das tags Open Graph. O GitHub Pages ainda não foi ativado neste repositório.
