@@ -1,6 +1,45 @@
-# Página de links (estilo Linktree)
+# Venxia — Página de links
 
-Página única, responsiva e otimizada para celular, com fundo em gradiente azul, cards centralizados e acabamento estilo fintech: minimalista, sóbrio e com animações suaves.
+Projeto oficial da Venxia: uma página de links simples, organizada e otimizada
+para celular, onde reunimos nossos canais de atendimento em um só lugar —
+WhatsApp, site, e-mail e localização.
+
+Tudo foi feito com HTML e CSS puro, sem dependências ou etapa de build. O
+resultado é uma experiência leve, com visual minimalista de fintech, fundo em
+gradiente azul e animações discretas.
+
+## Sobre o projeto
+
+- Página única (`index.html`), responsiva e com suporte a notch/`safe-area`.
+- Canais centralizados em cards, com hierarquia visual clara.
+- Favicon, preview para redes sociais e selo de presença "Online agora".
+- Acessibilidade: foco visível, `aria` e respeito a `prefers-reduced-motion`.
+
+## A logo da Venxia
+
+A logo foi adicionada a partir do arquivo original fornecido
+(`B4F8B9EA-499F-43D5-ABAA-E59238298C20.png`, salvo em Downloads). Como a
+imagem original é vertical e o símbolo "X" ocupa pouco espaço, foi feito um
+recorte quadrado centralizado no símbolo, gerando o `logo.png` usado no topo da
+página dentro de um círculo com anel de gradiente animado.
+
+A mesma marca aparece em outros pontos:
+
+- `logo.png` — avatar/cabeçalho e ícone "apple-touch-icon".
+- `favicon.svg` e `favicon.png` — ícone da aba do navegador.
+- `og-image.png` — imagem de preview (1200×630) para WhatsApp e redes sociais.
+
+## Propriedade e direitos autorais
+
+Este é um projeto da **Venxia**. O código, o layout, os textos, a logo e os
+demais arquivos deste repositório são de propriedade da Venxia e destinam-se
+exclusivamente à divulgação dos seus canais oficiais de contato.
+
+© 2026 Venxia. Todos os direitos reservados.
+
+É permitido visualizar e compartilhar o link público da página. A reutilização,
+cópia, modificação ou distribuição do conteúdo deste repositório sem
+autorização expressa da Venxia não é permitida.
 
 ## Como usar
 
